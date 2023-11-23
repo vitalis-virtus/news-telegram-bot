@@ -12,6 +12,17 @@ type ArticlePostgresStorage struct {
 	db *sqlx.DB
 }
 
+type dbArticle struct {
+	ID          int       `db:"id"`
+	SourceID    int       `db:"source_id"`
+	Title       string    `db:"title"`
+	Link        string    `db:"link"`
+	Summary     string    `db:"summary"`
+	PublishedAt time.Time `db:"published_at"`
+	CreatedAt   time.Time `db:"created_at"`
+	PostedAt    time.Time `db:"posted_at"`
+}
+
 func NewArticleStorage(db *sqlx.DB) *ArticlePostgresStorage {
 	return &ArticlePostgresStorage{db: db}
 }
