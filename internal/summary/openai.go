@@ -17,14 +17,14 @@ type OpenAISummarizer struct {
 	mu      sync.Mutex
 }
 
-func New(apiKey, prompt string) *OpenAISummarizer {
+func NewOpenAISummarizer(apiKey, prompt string) *OpenAISummarizer {
 
 	s := &OpenAISummarizer{
 		client: openai.NewClient(apiKey),
 		prompt: prompt,
 	}
 
-	log.Printf("openai summarizer enabled: %v", apiKey != "")
+	log.Printf("[INFO] openai summarizer enabled: %v", apiKey != "")
 
 	if apiKey != "" {
 		s.enabled = true

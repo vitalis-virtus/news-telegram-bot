@@ -20,6 +20,12 @@ type dbSource struct {
 	CreatedAt time.Time `db:"created_at"`
 }
 
+func NewSourceStorage(db *sqlx.DB) *SourcePostgresStorage {
+	return &SourcePostgresStorage{
+		db: db,
+	}
+}
+
 func (s *SourcePostgresStorage) Sources(ctx context.Context) ([]model.Source, error) {
 	conn, err := s.db.Connx(ctx)
 	if err != nil {
