@@ -16,6 +16,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/samber/lo v1.38.1 // indirect
+	github.com/sashabaranov/go-openai v1.17.8 // indirect
 	github.com/tomakado/containers v0.0.0-20230620211702-4a5ca7fb9fd3 // indirect
 	golang.org/x/exp v0.0.0-20230131160201-f062dba9d201 // indirect
 	golang.org/x/net v0.18.0 // indirect
