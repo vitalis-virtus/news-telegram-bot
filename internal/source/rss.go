@@ -40,6 +40,14 @@ func (s *RSSSource) Fetch(ctx context.Context) ([]model.Item, error) {
 	}), nil
 }
 
+func (s *RSSSource) ID() int {
+	return s.SourceID
+}
+
+func (s *RSSSource) Name() string {
+	return s.SourceName
+}
+
 func (s *RSSSource) loadFeed(ctx context.Context, url string) (*rss.Feed, error) {
 	var (
 		feedCh = make(chan *rss.Feed)

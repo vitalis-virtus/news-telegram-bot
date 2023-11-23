@@ -20,7 +20,7 @@ type Source struct {
 
 type Article struct { //article in the format in our system
 	ID          int
-	Source      string
+	SourceID    int
 	Title       string
 	Link        string
 	Summary     string
