@@ -54,6 +54,8 @@ func (f *Fetcher) Fetch(ctx context.Context) error {
 		return err
 	}
 
+	log.Print(sources)
+
 	var wg sync.WaitGroup
 	for _, src := range sources {
 		wg.Add(1)

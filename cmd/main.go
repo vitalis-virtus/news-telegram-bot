@@ -10,6 +10,7 @@ import (
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 	"github.com/vitalis-virtus/news-telegram-bot/internal/config"
 	"github.com/vitalis-virtus/news-telegram-bot/internal/fetcher"
 	"github.com/vitalis-virtus/news-telegram-bot/internal/notifier"
@@ -21,13 +22,15 @@ func main() {
 	botAPI, err := tgbotapi.NewBotAPI(config.Get().TelegramBotToken)
 	if err != nil {
 		log.Printf("[ERROR] failed create telegram bot: %v", err)
-		return
+		// return
 	}
+
+	log.Printf("%#v\n", config.Get())
 
 	db, err := sqlx.Connect("postgres", config.Get().DatabaseDSN)
 	if err != nil {
 		log.Printf("[ERROR] failed connect ot DB: %v", err)
-		return
+		// return
 	}
 	defer db.Close()
 
